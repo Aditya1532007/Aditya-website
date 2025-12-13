@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aditya's Awesome Homepage</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="bubbles"></div>
+  <button id="scrollTopBtn">⬆</button>
+
+  <header>
+    <img src="1000003737.webp" alt="Profile Photo" class="profile-img" />
+    <h1>Hello, I'm <span class="highlight">Aditya Kharwar</span>!</h1>
+    <button id="toggleTheme">🌓 Toggle Theme</button>
+    <p id="clock">Loading time...</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p>I'm passionate about learning web development and building cool websites like this one!</p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p>Pursuing Bhachlors of Engineering(BE) 
+     from Thakur Shree DPS Collage og Engineering and Management</p>
+    </section>
+
+    <section>
+      <h2>Hobbies</h2>
+      <ul class="hobbies">
+        <li>🎮 Gaming</li>
+        <li>📚 Reading</li>
+        <li>🎨 Drawing</li>
+        <li>🧑‍💻 Coding</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Instagram: <a href="https://www.instagram.com/aditya3_15?igsh=MWVzamFkbjU0b2IwcA==" target="_blank">Aditya3_15</a></p>
+      <p>Email: <a href="mailto:kharwaraditya737@gmail.com">kharwaraditya737@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aditya's Awesome Website</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleTheme");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    window.onscroll = function () {
+      scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    };
+
+    const bubblesContainer = document.getElementById('bubbles');
+    for (let i = 0; i < 30; i++) {
+      const bubble = document.createElement('span');
+      bubble.className = 'bubble';
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${3 + Math.random() * 5}s`;
+      bubble.style.opacity = Math.random();
+      bubblesContainer.appendChild(bubble);
+    }
+  </script>
+</body>
+</html>
